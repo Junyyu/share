@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% block head %}
+{{ super() }}
+<title> 主页</title>
+{% endblock %}
+{% block body %}
+{% include "navbar.html" %}
+<body style="background-color:rgb(72,61,139);">
+</body>
+<p><img src="{{ url_for('static', filename='submit-ad.png')}}" width="1500" height="1120" /></p>
+<div class="ui container" id="container">
+	{% with message=get_flashed_messages(with_categories=true) %}
+		{% if message %}
+			{% for category,message in messages %}
+				<li class="{{category }}">{{ message }}</li>
+			{% endfor %}
+		{% endif %}
+	{% endwith %}
+	
+</div>
+
+{% endblock %}
+{% block scripts %}
+<script src="../static/js/scripts.js"></script>
+{% endblock %}
+
+
+	
+
